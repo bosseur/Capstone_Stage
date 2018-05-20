@@ -1,7 +1,9 @@
-package br.bosseur.beachvolleytour;
+package br.bosseur.beachvolleytour.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.bosseur.beachvolleytour.R;
 
 public class BeachTournamentsActivity extends AppCompatActivity {
 
