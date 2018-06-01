@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tournament_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        app:cardBackgroundColor="@color/primaryColor"
+        android:layout_height="@dimen/card_list_height"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/card_list_margin_start"
+        android:layout_marginEnd="@dimen/card_list_margin_end"
+        android:layout_marginTop="@dimen/card_list_margin_top">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/recipe_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/item_selector">
+
+            <ImageView
+                android:id="@+id/country"
+                android:layout_width="@dimen/image_flag_width"
+                android:layout_height="@dimen/image_flag_height"
+                android:layout_marginEnd="@dimen/margin_end"
+                android:layout_marginStart="@dimen/margin_start_element"
+                android:layout_marginTop="@dimen/margin_top"
+                android:contentDescription="@string/country_flag"
+                app:layout_constraintBottom_toTopOf="@+id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintVertical_bias="0.641" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginTop="@dimen/margin_top_element"
+                android:layout_weight="2"
+                android:contentDescription="@string/name_tournament"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                tools:text="@string/fake_tournament"
+                style="@style/TextStyleLight"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginTop="@dimen/margin_end"
+                android:contentDescription="@string/tournament_title"
+                android:maxWidth="@dimen/max_width_title"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/fake_tournament_title"
+                style="@style/TextStyle"/>
+
+            <TextView
+                android:id="@+id/from_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                tools:text="@string/fake_date"
+                style="@style/TextStyleLight"/>
+
+            <TextView
+                android:id="@+id/to_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/to"
+                app:layout_constraintStart_toEndOf="@+id/to"
+                tools:text="@string/fake_date"
+                style="@style/TextStyleLight"/>
+
+            <TextView
+                android:id="@+id/to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/untill"
+                app:layout_constraintBottom_toBottomOf="@+id/from_date"
+                app:layout_constraintStart_toEndOf="@+id/from_date"
+                style="@style/TextStyleLight"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

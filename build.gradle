@@ -5,6 +5,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+//        maven {
+//            url 'http://psdartifactory.sicpa-net.ads:8081/artifactory/repo'
+//            credentials {
+//                username = artifactory_user
+//                password = artifactory_password
+//            }
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
@@ -28,4 +35,6 @@ ext {
     butterKnifeVersion = '8.8.1'
     lombokVersion = '1.16.20'
     retrofitVersion = '2.4.0'
+    timberVersion = '4.7.0'
+    picassoVersion = '2.5.2'
 }

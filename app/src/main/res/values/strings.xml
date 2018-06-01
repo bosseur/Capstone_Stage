@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Beach Volley Tour</string>
+    <string name="pref_year_key">pref_year_key</string>
+    <string name="message_no_tournaments_found">No tournaments found.</string>
+    <string name="tournaments_loaded">Tournaments Loaded</string>
+    <string name="fake_tournament">Beach tournament 1</string>
+    <string name="url_country_flag">https://www.fivb.org/Vis2009/Images/Flags/Small/%s.png</string>
+    <string name="tournament_title">Title of the tournament</string>
+    <string name="name_tournament">Name of the tournament</string>
+    <string name="untill">untill</string>
+    <string name="fake_date">12/05/2018</string>
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="fake_tournament_title">Circuito Brasileiro de Volei de Praia Open 2017/2018</string>
+    <string name="country_flag">Flag of country where tournament is held</string>
+    <string name="toolbar">The toolbar</string>
+    <string name="choose_year">Choose a year</string>
+
+
 </resources>

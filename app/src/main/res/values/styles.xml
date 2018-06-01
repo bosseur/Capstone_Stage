@@ -1,11 +1,33 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryDarkColor</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="layout_collapseMode">pin</item>
+        <item name="android:background">@color/primaryColor</item>
+        <item name="titleTextColor">@color/secondaryDarkColor</item>
+        <item name="android:textColor">@color/secondaryDarkColor</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:elevation">@dimen/action_bar_elevation</item>
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:textColor">@color/secondaryDarkColor</item>
+    </style>
+
+    <style name="TextStyleLight">
+        <item name="android:textColor">@color/secondaryLightColor</item>
     </style>
 
 </resources>
