@@ -16,10 +16,10 @@ import lombok.Getter;
 @Getter
 public class TournamentsResponses {
 
-    @ElementList(name = "BeachTournaments")
-    private List<BeachTournament> eventList;
+  @ElementList(name = "BeachTournaments")
+  private List<BeachTournament> eventList;
 
-    @Attribute(name = "ServerTime", required = false)
-    private BigDecimal servertime;
+  @Attribute(name = "ServerTime", required = false)
+  private BigDecimal servertime;
 
 }

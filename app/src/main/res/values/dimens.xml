@@ -16,6 +16,21 @@
     <dimen name="card_list_margin_end">16dp</dimen>
     <dimen name="card_list_margin_top">8dp</dimen>
     <dimen name="margin_start_element">8dp</dimen>
-    <dimen name="max_width_title">280dp</dimen>
+    <dimen name="max_width_title">240dp</dimen>
     <dimen name="action_bar_elevation">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="no_elevation">0dp</dimen>
+    <dimen name="margin_start_points">36dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="match_padding_bottom">8dp</dimen>
+    <dimen name="margin_bottom_element">8dp</dimen>
+    <dimen name="margin_bottom">16dp</dimen>
+    <dimen name="spinner_padding">12dp</dimen>
+    <dimen name="tab_width">0dp</dimen>
+
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="widget_padding">8dp</dimen>
+    <dimen name="width_tournament_fragment">300dp</dimen>
+    <dimen name="margin_round">0dp</dimen>
+
 </resources>

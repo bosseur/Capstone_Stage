@@ -10,13 +10,20 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import br.bosseur.beachvolleytour.data.contracts.BaseContract;
+import br.bosseur.beachvolleytour.data.contracts.BeachMatchContract;
+import br.bosseur.beachvolleytour.data.contracts.BeachRoundContract;
 import br.bosseur.beachvolleytour.data.contracts.TournamentsContract;
+import timber.log.Timber;
 
 public class BeachVolleyProvider extends ContentProvider {
 
   public static final int CODE_TOURNAMENTS = 100;
-
   public static final int CODE_TOURNAMENTS_WITH_YEAR = 101;
+
+  public static final int CODE_ROUNDS = 200;
+  public static final int CODE_ROUNDS_WITH_TOURNAMENT = 201;
+
+  public static final int CODE_MATCHES = 300;
 
   private static final UriMatcher sURI_MATCHER = buildUriMatcher();
 
@@ -29,6 +36,11 @@ public class BeachVolleyProvider extends ContentProvider {
 
     matcher.addURI(authority, TournamentsContract.PATH, CODE_TOURNAMENTS);
     matcher.addURI(authority, TournamentsContract.PATH + "/#", CODE_TOURNAMENTS_WITH_YEAR);
+
+    matcher.addURI(authority, BeachRoundContract.PATH, CODE_ROUNDS);
+    matcher.addURI(authority, BeachRoundContract.PATH + "/#", CODE_ROUNDS_WITH_TOURNAMENT);
+
+    matcher.addURI(authority, BeachMatchContract.PATH, CODE_MATCHES);
 
     return matcher;
   }
@@ -43,31 +55,24 @@ public class BeachVolleyProvider extends ContentProvider {
   public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
     final SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
+    String tableName;
     switch (sURI_MATCHER.match(uri)) {
       case CODE_TOURNAMENTS:
-        db.beginTransaction();
-        int rowsInserted = 0;
-        try {
-          for (ContentValues value : values) {
+        tableName = TournamentsContract.TournamentsEntry.TABLE_NAME;
+        break;
 
-            long _id = db.insert(TournamentsContract.TournamentsEntry.TABLE_NAME, null, value);
-            if (_id != -1) {
-              rowsInserted++;
-            }
-          }
-          db.setTransactionSuccessful();
-        } finally {
-          db.endTransaction();
-        }
+      case CODE_ROUNDS:
+        tableName = BeachRoundContract.BeachRoundsEntry.TABLE_NAME;
+        break;
 
-        if (rowsInserted > 0) {
-          getContext().getContentResolver().notifyChange(uri, null);
-        }
-
-        return rowsInserted;
+      case CODE_MATCHES:
+        tableName = BeachMatchContract.BeachMatchEntry.TABLE_NAME;
+        break;
       default:
         return super.bulkInsert(uri, values);
     }
+
+    return insertRows(values, db, tableName, uri);
 
   }
 
@@ -78,35 +83,37 @@ public class BeachVolleyProvider extends ContentProvider {
 
     int match = sURI_MATCHER.match(uri);
 
-    Cursor cursor;
-    SQLiteDatabase db;
+    Timber.d("Loading tournaments.");
 
+
+    String tableName;
     switch (match) {
       case CODE_TOURNAMENTS:
-        db = mDbHelper.getReadableDatabase();
-        cursor = db.query(TournamentsContract.TournamentsEntry.TABLE_NAME,
-            projection,
-            selection,
-            selectionArgs,
-            null,
-            null,
-            sortOrder);
+        tableName = TournamentsContract.TournamentsEntry.TABLE_NAME;
         break;
       case CODE_TOURNAMENTS_WITH_YEAR:
-        db = mDbHelper.getReadableDatabase();
+        tableName = TournamentsContract.TournamentsEntry.TABLE_NAME;
         selection = TournamentsContract.TournamentsEntry.COLUMN_YEAR + "=?";
         selectionArgs = new String[]{uri.getLastPathSegment()};
-        cursor = db.query(TournamentsContract.TournamentsEntry.TABLE_NAME,
-            projection,
-            selection,
-            selectionArgs,
-            null,
-            null,
-            sortOrder);
+        break;
+      case CODE_ROUNDS:
+        tableName = BeachRoundContract.BeachRoundsEntry.TABLE_NAME;
+        break;
+      case CODE_MATCHES:
+        tableName = BeachMatchContract.BeachMatchEntry.TABLE_NAME;
         break;
       default:
         throw new UnsupportedOperationException("Unknown uri: " + uri);
     }
+
+    SQLiteDatabase db = mDbHelper.getReadableDatabase();
+    Cursor cursor = db.query(tableName,
+        projection,
+        selection,
+        selectionArgs,
+        null,
+        null,
+        sortOrder);
 
     // Set a notification URI on the Cursor and return that Cursor
     cursor.setNotificationUri(getContext().getContentResolver(), uri);
@@ -135,13 +142,19 @@ public class BeachVolleyProvider extends ContentProvider {
       case CODE_TOURNAMENTS:
         tableName = TournamentsContract.TournamentsEntry.TABLE_NAME;
         break;
+      case CODE_ROUNDS:
+        tableName = BeachRoundContract.BeachRoundsEntry.TABLE_NAME;
+        break;
+      case CODE_MATCHES:
+        tableName = BeachMatchContract.BeachMatchEntry.TABLE_NAME;
+        break;
       default:
         throw new UnsupportedOperationException("Unknown uri: " + uri);
     }
 
     SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-    int rowsDeleted = db.delete(tableName, null, null);
+    int rowsDeleted = db.delete(tableName, selection, selectionArgs);
 
     if (rowsDeleted > 0) {
       getContext().getContentResolver().notifyChange(uri, null);
@@ -154,5 +167,28 @@ public class BeachVolleyProvider extends ContentProvider {
   @Override
   public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
     return 0;
+  }
+
+  private int insertRows(@NonNull ContentValues[] values, SQLiteDatabase db, String tableName, Uri uri) {
+    int rowsInserted = 0;
+    db.beginTransaction();
+    try {
+      for (ContentValues value : values) {
+
+        long _id = db.insert(tableName, null, value);
+        if (_id != -1) {
+          rowsInserted++;
+        }
+      }
+      db.setTransactionSuccessful();
+    } finally {
+      db.endTransaction();
+    }
+
+    if (rowsInserted > 0) {
+      getContext().getContentResolver().notifyChange(uri, null);
+    }
+
+    return rowsInserted;
   }
 }

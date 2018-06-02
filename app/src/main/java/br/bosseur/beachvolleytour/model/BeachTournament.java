@@ -5,8 +5,8 @@ import android.os.Parcelable;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
+import org.simpleframework.xml.convert.Convert;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Root(name = "BeachTournament")
-public class BeachTournament implements Comparable<BeachTournament>, Serializable, Parcelable {
+public class BeachTournament implements Comparable<BeachTournament>, Parcelable {
 
   @Attribute(required = false, name = "Name")
   private String name;
@@ -35,16 +35,16 @@ public class BeachTournament implements Comparable<BeachTournament>, Serializabl
   @Attribute(required = false, name = "CountryCode")
   private String country;
 
-  @Attribute(required = false, name = "StartDateMainDraw", empty = "2014-08-08")
+  @Attribute(required = false, name = "StartDateMainDraw")
   private Date startDate;
 
-  @Attribute(required = false, name = "EndDateMainDraw", empty = "2014-08-08")
+  @Attribute(required = false, name = "EndDateMainDraw")
   private Date endDate;
 
   @Attribute(required = false, name = "Gender")
   private int gender;
 
-  @Attribute(required = false, name = "Type", empty = "-1")
+  @Attribute(required = false, name = "Type")
   private Integer type;
 
   @Attribute(required = false, name = "Code")

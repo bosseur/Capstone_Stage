@@ -2,4 +2,5 @@
 <resources>
     <integer name="start_year">2010</integer>
     <integer name="anim_duration_long">500</integer>
+    <integer name="min_tries">5</integer>
 </resources>

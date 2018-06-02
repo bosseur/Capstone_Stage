@@ -45,10 +45,6 @@ public class TournamentsContract extends BaseContract {
         .appendPath(PATH)
         .build();
 
-    public static final Uri CONTENT_URI_WITH_YEAR = BASE_CONTENT_URI.buildUpon()
-        .appendPath(PATH)
-        .build();
-
     public static final String TABLE_NAME = "tournaments";
 
     public static final String COLUMN_NAME = "name";

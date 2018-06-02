@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/match_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/teamA"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:contentDescription="@string/teama"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/fake_team_name" />
+
+    <TextView
+        android:id="@+id/pointsTeamASet1"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_start_points"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:contentDescription="@string/points_teama_set1"
+        app:layout_constraintEnd_toStartOf="@+id/pointsTeamASet2"
+        app:layout_constraintTop_toBottomOf="@+id/teamA"
+        tools:text="@string/fake_points_set" />
+
+    <TextView
+        android:id="@+id/pointsTeamASet2"
+        style="@style/TextStyle"
+        android:layout_width="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/points_teama_set2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pointsTeamASet1"
+        tools:text="@string/fake_points_set" />
+
+    <TextView
+        android:id="@+id/pointsTeamASet3"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_points"
+        android:contentDescription="@string/points_teama_set3"
+        app:layout_constraintStart_toEndOf="@+id/pointsTeamASet2"
+        app:layout_constraintTop_toTopOf="@+id/pointsTeamASet1"
+        tools:text="@string/fake_points_set" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginEnd="@dimen/margin_end"
+        android:layout_marginStart="@dimen/margin_start"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:background="@color/secondaryDarkColor"
+        android:contentDescription="@string/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsTeamASet1" />
+
+    <TextView
+        android:id="@+id/pointTeamBSet1"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:contentDescription="@string/points_teamb_set1"
+        app:layout_constraintStart_toStartOf="@+id/pointsTeamASet1"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="@string/fake_points_set" />
+
+    <TextView
+        android:id="@+id/pointTeamBSet2"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/points_teamb_set2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pointTeamBSet1"
+        tools:text="@string/fake_points_set" />
+
+    <TextView
+        android:id="@+id/pointsTeamBSet3"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_points"
+        android:contentDescription="@string/points_teamb_set3"
+        app:layout_constraintStart_toEndOf="@+id/pointTeamBSet2"
+        app:layout_constraintTop_toTopOf="@+id/pointTeamBSet1"
+        tools:text="@string/fake_points_set" />
+
+    <TextView
+        android:id="@+id/teamB"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/teamb"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        app:layout_constraintBottom_toTopOf="@+id/divider_match"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointTeamBSet1"
+        tools:text="@string/fake_team_name" />
+
+    <View
+        android:id="@+id/divider_match"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="@color/secondaryDarkColor"
+        android:contentDescription="@string/divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+</android.support.constraint.ConstraintLayout>

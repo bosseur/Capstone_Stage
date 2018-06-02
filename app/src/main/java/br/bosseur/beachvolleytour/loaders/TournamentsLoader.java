@@ -18,19 +18,29 @@ import br.bosseur.beachvolleytour.R;
 import br.bosseur.beachvolleytour.data.contracts.TournamentsContract;
 import br.bosseur.beachvolleytour.listeners.FivbCallBack;
 import br.bosseur.beachvolleytour.model.BeachTournament;
-import br.bosseur.beachvolleytour.utils.CursorParser;
+import br.bosseur.beachvolleytour.services.FivbIntentService;
+import br.bosseur.beachvolleytour.services.FivbSyncTasks;
+import br.bosseur.beachvolleytour.utils.CursorParserUtil;
+import br.bosseur.beachvolleytour.utils.NetworkUtil;
 import lombok.RequiredArgsConstructor;
+import timber.log.Timber;
 
-@RequiredArgsConstructor
 public class TournamentsLoader implements LoaderManager.LoaderCallbacks<Cursor> {
-  private final FivbCallBack mCallBack;
-  private final Context mContext;
+  private FivbCallBack<List<BeachTournament>> mCallBack;
+  private Context mContext;
+  private String selectionYear;
+
+  public TournamentsLoader(
+      FivbCallBack<List<BeachTournament>> callBack, Context context) {
+    mCallBack = callBack;
+    mContext = context;
+  }
 
   @NonNull
   @Override
   public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle bundle) {
 
-    String selectionYear = bundle.getString(YEAR_PARAM);
+    selectionYear = bundle.getString(YEAR_PARAM);
     Uri tournamentsUri = TournamentsContract.TournamentsEntry.CONTENT_URI
         .buildUpon()
         .appendPath(selectionYear)
@@ -50,15 +60,21 @@ public class TournamentsLoader implements LoaderManager.LoaderCallbacks<Cursor> 
   @Override
   public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
     if (data != null && data.getCount() > 0) {
-      List<BeachTournament> tournaments = CursorParser.parseTournaments(data);
+      List<BeachTournament> tournaments = CursorParserUtil.parseTournaments(data);
       mCallBack.success(tournaments);
     } else {
-      mCallBack.error(mContext.getString(R.string.message_no_tournaments_found));
+      if (NetworkUtil.isOnline(mContext)) {
+        FivbIntentService.startFivbService(mContext, this.selectionYear);
+      } else {
+        mCallBack.error(mContext.getString(R.string.network_unavailable));
+      }
+
     }
   }
 
   @Override
   public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-    mCallBack.success(null);
   }
+
+
 }
