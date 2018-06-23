@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/widget_padding">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondaryDarkColor"
+        android:textColor="@color/primaryColor"
+        android:padding="@dimen/widget_padding"
+        android:text="@string/next_tournament"
+        tools:text="@string/next_tournament"/>
+
+    <TextView
+        android:id="@+id/name_tournament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_marginStart="@dimen/margin_start_element"
+        android:layout_marginEnd="@dimen/margin_start_element"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:contentDescription="@string/tournament_title"
+        tools:text="@string/fake_tournament_title"
+        style="@style/TextStyle"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/no_data_info"
+        android:layout_marginStart="@dimen/margin_start_element"
+        android:layout_marginEnd="@dimen/margin_start_element"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:text="@string/no_data_info"
+        tools:text="@string/no_data_info"
+        style="@style/TextStyle"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/tournament_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_element"
+        android:layout_marginEnd="@dimen/margin_start_element"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/country"
+            android:contentDescription="@string/country_flag"
+            android:layout_width="@dimen/image_flag_width"
+            android:layout_height="@dimen/image_flag_height" />
+
+        <TextView
+            android:id="@+id/title_tournament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_element"
+            android:contentDescription="@string/tournament_title"
+            tools:text="@string/fake_tournament_title"
+            style="@style/TextStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tournament_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_element"
+        android:layout_marginStart="@dimen/margin_start_element"
+        android:layout_marginEnd="@dimen/margin_start_element"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/start_tournament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/start_date"
+            tools:text="@string/fake_date"
+            style="@style/TextStyle" />
+
+        <TextView
+            android:id="@+id/until"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_element"
+            android:contentDescription="@string/until"
+            android:text="@string/until"
+            tools:text="@string/until"
+            style="@style/TextStyle" />
+
+        <TextView
+            android:id="@+id/end_tournament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_element"
+            android:contentDescription="@string/end_date"
+            tools:text="@string/fake_date"
+            style="@style/TextStyle" />
+    </LinearLayout>
+
+</LinearLayout>

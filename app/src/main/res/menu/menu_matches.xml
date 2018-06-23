@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.BeachTournamentsActivity">
+
+    <item
+        android:id="@+id/refresh"
+        android:alphabeticShortcut="r"
+        android:contentDescription="@string/menu_refresh_description"
+        android:icon="@drawable/ic_refresh_action"
+        android:orderInCategory="1"
+        android:title="@string/menuitem_refresh"
+        app:showAsAction="always" />
+
+</menu>

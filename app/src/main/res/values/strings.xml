@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Beach Volley Tour</string>
+    <string name="pref_year_key">pref_year_key</string>
+    <string name="message_no_tournaments_found">No tournaments found.</string>
+    <string name="tournaments_loaded">Tournaments Loaded</string>
+    <string name="fake_tournament">Beach tournament 1</string>
+    <string name="url_country_flag">https://www.fivb.org/Vis2009/Images/Flags/Small/%s.png</string>
+    <string name="tournament_title">Title of the tournament</string>
+    <string name="name_tournament">Name of the tournament</string>
+    <string name="until">until</string>
+    <string name="fake_date">12/05/2018</string>
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="fake_tournament_title">Circuito Brasileiro de Volei de Praia Open 2017/2018</string>
+    <string name="country_flag">Flag of country where tournament is held</string>
+    <string name="toolbar">The toolbar</string>
+    <string name="choose_year">Choose a year</string>
+    <string name="title_activity_matches">MatchesActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="network_unavailable">Network unavailable</string>
+    <string name="matches_loaded">Matches loaded</string>
+    <string name="fake_round_name">First place</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="retry">Retry</string>
+    <string name="gender_tab">Tab for selecting tournament gender male or female.</string>
+    <string name="fake_team_name">Player1 / Player 2 (SUI)</string>
+    <string name="fake_points_set">21</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-7450998165280944/1348861068</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="google_ads">Ads from google</string>
+    <string name="menuitem_refresh">Update machtes</string>
+    <string name="menu_refresh_description">Click to refresh match list</string>
+    <string name="progressbar">Progress bar</string>
+    <string name="pager_male_female">Pager between male and female in tournament</string>
+    <string name="teama">Team A name</string>
+    <string name="points_teama_set1">Points team a set 1</string>
+    <string name="points_teama_set2">Points team a set 2</string>
+    <string name="points_teama_set3">Points team a set 3</string>
+    <string name="divider">Screen divider</string>
+    <string name="points_teamb_set1">Points team b set 1</string>
+    <string name="points_teamb_set2">Points team b set 2</string>
+    <string name="points_teamb_set3">Points team b set 3</string>
+    <string name="teamb">Team b name</string>
+    <string name="spinner_item">Spinner item with a year to choose</string>
+    <string name="undefined_request">Undefined requestTournaments type.</string>
+    <string name="broadcast_request_error">br.bosseur.beachvolleytour.REQUEST_EXCEPTION_ACTION</string>
+    <string name="broadcast_exception_message_key">br.bosseur.beachvolleytour.exception_message_key</string>
+    <string name="error_during_loading">An error occurred during loading.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="start_date">Tournament start date</string>
+    <string name="end_date">Tournament end date</string>
+    <string name="no_data_info">No next tournament</string>
+    <string name="next_tournament">Next tournament</string>
+    <string name="unknown_error">An unknown error occurred</string>
+    <string name="network_error">A network error occurred</string>
+    <string name="no_match_data_available">No match data available for this tournament.</string>
+    <string name="error_parsing_data">The data received was invalid.</string>
+    <string name="current_tournament">Current tournament</string>
+    <string name="test_device">46D87BB70FD80008B39B34EB17DAAFD7</string>
+
+
+</resources>

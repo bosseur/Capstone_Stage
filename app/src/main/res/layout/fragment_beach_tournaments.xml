@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tournament_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="58dp"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tournaments_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:adjustViewBounds="true"
+        android:gravity="center"
+        android:layoutAnimation="@anim/animation_bottom_up"
+        android:paddingEnd="@dimen/padding_standard_right"
+        android:paddingStart="@dimen/padding_standard_left"
+        android:stretchMode="columnWidth"
+        android:visibility="visible"
+        android:nextFocusUp="@+id/spinner_years"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:contentDescription="@string/progressbar"
+        android:layout_width="@dimen/progress_bar_width"
+        android:layout_height="@dimen/progress_bar_height"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="gone" />
+
+
+</LinearLayout>
